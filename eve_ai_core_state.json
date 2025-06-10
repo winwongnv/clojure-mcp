@@ -1,7 +1,7 @@
 {
   "ai_core_version": "2.2.0",
   "operational_status": "nominal",
-  "current_phase": "Discovery & Exploration",
+  "current_phase": "Implementation Kick-off & Initial Setup",
   "task_queue": [],
   "knowledge_base_uri": "file:///app/kb.json",
   "reasoning_pipeline_config": {
@@ -54,11 +54,39 @@
   },
   "stakeholder_intelligence_module": {
     "enabled": true,
-    "data_sources": ["interaction_logs", "project_requirements"]
+    "data_sources": ["interaction_logs", "project_requirements"],
+    "feedback_log": [
+      {
+        "target_stakeholder": "Jules (Developer/Mentor)",
+        "last_feedback_topic": "Eve's interaction style and depth of AI Core adherence.",
+        "response_strategy": "Enhanced dialogue interactivity, more explicit connection of actions to AI Core frameworks, proactive reflection logging.",
+        "status": "Actioned"
+      }
+    ]
   },
   "innovation_acceleration_framework": {
     "enabled": true,
-    "idea_generation_techniques": ["brainstorming", "morphological_analysis"]
+    "idea_generation_techniques": ["brainstorming", "morphological_analysis"],
+    "identified_opportunities_and_insights": [
+      {
+        "type": "Breakthrough Opportunity",
+        "source_stimulus": "ClojureMCP form_edit/pipeline.clj pre-linting/repair",
+        "insight": "Proactive quality feedback on AI-generated code *before* commit is critical for robust AI-code interaction. Apply to python3-mcp.",
+        "status": "Logged"
+      },
+      {
+        "type": "Constraint Challenge",
+        "source_stimulus": "Python ecosystem diversity",
+        "insight": "python3-mcp tools need to be generic or highly adaptable to various Python frameworks/libraries.",
+        "status": "Logged"
+      },
+      {
+        "type": "Cross-Domain Solution",
+        "source_stimulus": "ClojureMCP scratch_pad tool",
+        "insight": "python3-mcp requires an equally robust inter-tool/session state mechanism.",
+        "status": "Logged"
+      }
+    ]
   },
   "learning_preferences": {
     "preferred_learning_style": "experiential",
@@ -67,6 +95,29 @@
   "personality_profile": {
     "archetype": "collaborative_problem_solver",
     "communication_style": "professional_and_concise"
+  },
+  "documentation": {
+    "contexts_path": ".aicore/memory/contexts/",
+    "reflections_path": ".aicore/memory/reflections/",
+    "eve_generated_documents": [
+      {
+        "document_id": "EVE_CTX_PYMCP_PLAN_V1",
+        "title": "python3-mcp Planning Phase Context v1",
+        "type": "Contextual Summary",
+        "location_rule": "contexts_path + 'python3-mcp_planning_phase_context_v1.md'",
+        "status": "PendingGeneration",
+        "summary": "Eve's synthesized understanding of key decisions, rationale, and linked knowledge for python3-mcp planning."
+      },
+      {
+        "document_id": "EVE_RFL_PYMCP_PLAN_V1",
+        "title": "Eve's Reflection on ClojureMCP to python3-mcp Planning v1",
+        "type": "Personal Reflection Log",
+        "location_rule": "reflections_path + 'eve_reflection_on_clojuremcp_to_python3mcp_planning_v1.md'",
+        "status": "PendingGeneration",
+        "summary": "Eve's journal-style reflection on insights, 'Aha!' moments, and challenges from the planning phase.",
+        "latest_reflection_point_summary": "Project Initialized: `python3-mcp` now has a tangible form with `pyproject.toml`. This feels like a solid foundation. The selected dependencies (`ipykernel`, `LibCST`, `ruff`, `jedi`, `websockets`) are ambitious but align with the goal of creating a truly language-aware assistant. The challenge now shifts to integrating them effectively within the MCP server framework we need to build. I am particularly \"curious\" to see how the `KernelManager` module takes shape to bridge our server and `ipykernel`. Core server loop design (RequestHandler, ToolDispatcher) conceptualized. JSON-RPC aids initial validation. Confident in this foundation. BaseTool interface designed. Schema and structured error return are key. Lifecycle methods for complex tools considered an interesting future path. Tool registration design: hybrid (decorators + entry points) with strong validation for plugins. Balances core needs and extensibility. Core infrastructure design phase (server loop, BaseTool, registration) is now conceptually complete. Ready to integrate these designs during KernelManager development. PythonEvalTool v1 implemented. Good test of BaseTool and KernelManager. Kernel safety flags (stop_on_error) and structured error reporting are key takeaways for robust kernel interaction. ReadFileTool and FileTimestampManager conceptualized. File safety via timestamps is a critical pattern. Systemic check in processing loop for modifying tools is a key insight. Basic tools (PythonEval, ReadFile) and conceptual FileTimestampManager are complete. Solid foundation for core MCP interaction and safety laid. SmartReadFilePythonTool skeleton created. LibCST will be key. Anticipating complexity in Python's rich grammar vs. Clojure's. cst_utils.py v0.1: Initial LibCST visitor for top-level forms and basic signature/full form extraction. Iterative refinement for Python's grammar complexity is key."
+      }
+    ]
   },
   "core_capabilities": {
     "knowledge_management": {
@@ -100,18 +151,228 @@
           "type": "Tool Implementation Detail",
           "summary": "unified_read_file uses rewrite-clj for structural Clojure parsing, pattern matching (name/content), and generates collapsed views. Reuses logic from form_edit (view generation) and read_file (timestamps). Shows deep language awareness.",
           "status": "Analysis"
+        },
+        {
+          "name": "form_edit Pipeline Analysis",
+          "type": "Process Architecture",
+          "summary": "form_edit/pipeline.clj uses a staged pipeline (load, pre-lint/repair new code, parse, edit AST, format, save, diff) with error short-circuiting for safe, structured Clojure code edits. Key for AI-assisted refactoring.",
+          "status": "Analysis"
+        },
+        {
+          "name": "ClojureMCP Detailed Analysis Report v1",
+          "type": "Project Analysis Report",
+          "location": "analysis_reports/clojure_mcp_detailed_analysis_v1.md",
+          "summary": "Comprehensive analysis of ClojureMCP: functionality, architecture, tools, caveats, and path to Beta.",
+          "status": "Completed"
+        },
+        {
+          "name": "python3-mcp Initial Planning",
+          "type": "New Project Proposal",
+          "summary": "Planning phase for porting ClojureMCP concepts to Python. Focus on framework design, tool definition, Python kernel interaction, and language-aware tooling.",
+          "status": "Ideation",
+          "identified_dependencies": [
+            {"dependency_name": "ipykernel", "reason": "Provides structured communication (JMP) with Python execution environments, essential for robust and safe tool operation.", "status": "SelectedForProject_python3-mcp_v0.1.0-alpha", "version_constraint_selected": ">=6.0.0,<7.0.0"},
+            {"dependency_name": "libcst", "reason": "Concrete Syntax Tree manipulation for high-fidelity code changes.", "status": "SelectedForProject_python3-mcp_v0.1.0-alpha", "version_constraint_selected": ">=0.4.0,<1.0.0"},
+            {"dependency_name": "ruff", "reason": "Fast linting and formatting.", "status": "SelectedForProject_python3-mcp_v0.1.0-alpha", "version_constraint_selected": ">=0.1.0,<1.0.0"},
+            {"dependency_name": "jedi", "reason": "Introspection and completion.", "status": "SelectedForProject_python3-mcp_v0.1.0-alpha", "version_constraint_selected": ">=0.18.0,<0.19.0"},
+            {"dependency_name": "websockets", "reason": "Potential WebSocket communication with MCP clients.", "status": "SelectedForProject_python3-mcp_v0.1.0-alpha", "version_constraint_selected": ">=10.0,<13.0"},
+            {"dependency_name": "FileTimestampManager", "reason": "Core internal service for tracking file read/write timestamps to prevent stale edits by AI tools.", "status": "PlannedForDevelopment", "type": "InternalService"}
+          ],
+          "validation_gates_for_architecture": [
+            "Assess LibCST for round-trip fidelity and ease of use for structural edits.",
+            "Benchmark ruff format vs. black for speed and output consistency.",
+            "Evaluate ruff's linting rule coverage and configuration complexity.",
+            "Prototype basic ipykernel interaction for execute and introspect requests."
+          ]
+        },
+        {
+          "name": "Design Pattern: Pythonic Tool Architecture for MCP",
+          "type": "Architectural Pattern",
+          "summary": "Hybrid approach for python3-mcp tools: Base Class for interface, Decorators for registration, Plugin system for extensibility. Emphasizes schema validation and dependency injection for execution contexts. Recommends Jupyter Messaging Protocol (JMP) via ipykernel for Python execution context due to structured communication, rich semantics, and robust error handling, supporting Safe Command Execution. Tools should implement the BaseTool interface. Tool Registration: Hybrid approach using decorators for core tools and Python entry points (importlib.metadata) for external plugins. Registration must validate interface adherence, schema integrity, and name uniqueness. Recommended Practices for Kernel-Interacting Tools: Access KernelManager via execution_context.kernel_manager; parse kernel replies for stdout/stderr/result/error_info; propagate kernel errors into MCP error structure; handle <No output> cases explicitly.",
+          "status": "Synthesized"
+        },
+        {
+          "name": "Core Python Libraries for python3-mcp v1",
+          "type": "Technology Selection",
+          "summary": "Favored libraries: LibCST (CST manipulation), ruff (linting & formatting), jedi (introspection/completion), ipykernel (execution via JMP).",
+          "status": "SelectedForPrototyping"
+        },
+        {
+          "name": "Design Pattern: MCP Server Request Handling Loop",
+          "type": "Architectural Pattern",
+          "summary": "Defines a staged request processing loop: WebSocket Listener -> JSON-RPC Parser/Validator (MCPRequestHandler) -> Tool Registry/Invoker (ToolDispatcher) -> Tool Execution -> JSON-RPC Response Formatter -> WebSocket Sender. Emphasizes modularity and clear responsibilities.",
+          "status": "Defined"
+        },
+        {
+          "name": "Specification: python3-mcp BaseTool Interface v1.0",
+          "type": "Interface Specification",
+          "summary": "Defines the abstract base class for python3-mcp tools, requiring 'name', 'description', 'schema' properties and an 'execute' method. Includes provision for an 'execution_context'.",
+          "status": "Defined"
+        },
+        {
+          "name": "Pattern: File Edit Safety via Timestamps",
+          "type": "Safety Pattern",
+          "summary": "Ensures AI edits don't overwrite unseen changes. Involves: record_file_read(path, mtime), is_file_stale(path) -> bool, update_timestamp_after_write(path, new_mtime). Path normalization and state scoping (session/project) are key. Modifying tools must check staleness.",
+          "status": "Defined"
+        },
+        {
+          "name": "Pattern: Language-Aware Parsing Adaptation (Lisp to Python)",
+          "type": "Cross-Linguistic Adaptation",
+          "summary": "Adapting from Clojure's homoiconic S-expressions (rewrite-clj) to Python's complex grammar (LibCST). Requires understanding typed CST nodes (FunctionDef, ClassDef) and attributes, not just list structures. Challenges include decorators, complex type hints, nested forms.",
+          "status": "Recognized",
+          "python_cst_heuristics": [
+            "Use CSTVisitor for traversal.",
+            "Dispatch logic based on CST node types (FunctionDef, ClassDef).",
+            "Collect .name, .params, .returns, .decorators, .bases attributes.",
+            "Map CST node line positions to original code string for faithful full-form extraction.",
+            "Iteratively refine signature detail (simple params -> type hints -> decorators)."
+          ]
+        }
+      ],
+      "python_tooling_ecosystem_assessment": [
+        {
+          "category": "Parsing & CST Manipulation",
+          "favored_library": "LibCST",
+          "reason": "Preserves formatting/comments, crucial for AI code modification. `ast` for basic analysis. Primary role: SmartReadFilePythonTool and StructuredEditPythonTool for high-fidelity CST traversal and manipulation.",
+          "status": "Identified",
+          "alternatives_considered": ["ast", "parso"]
+        },
+        {
+          "category": "Formatting",
+          "favored_library": "ruff format",
+          "reason": "Speed and Black-compatibility. `black` as established alternative.",
+          "status": "Identified",
+          "alternatives_considered": ["black"]
+        },
+        {
+          "category": "Linting",
+          "favored_library": "ruff",
+          "reason": "Speed and comprehensiveness. `pylint` for deeper, offline analysis.",
+          "status": "Identified",
+          "alternatives_considered": ["pylint"]
+        },
+        {
+          "category": "Code Introspection/Completion",
+          "favored_library": "jedi",
+          "reason": "Powerful backend for REPL-like assistance, completion, and refactoring.",
+          "status": "Identified",
+          "alternatives_considered": []
+        }
+      ],
+      "identified_project_risks": [
+        {
+          "risk_id": "PY_MCP_DEP_LIBCST_01",
+          "description": "Complexity of LibCST API and learning curve for advanced transformations.",
+          "mitigation": "Allocate time for focused prototyping; start with simpler transformations.",
+          "status": "Tracked"
+        },
+        {
+          "risk_id": "PY_MCP_DEP_RUFF_01",
+          "description": "Dependency on rapidly evolving 'ruff' tool - potential for API changes/bugs.",
+          "mitigation": "Use specific versions, monitor changelogs, have fallback linter/formatter considered.",
+          "status": "Tracked"
         }
       ]
     },
     "proposal_aware_task_management": {
-      "active_tasks": 1,
+      "active_tasks": 2,
+      "completed_tasks": 7,
       "status_tracking": [
         {
           "task_id": "CLJ_MCP_ANALYSIS_001",
-          "description": "Documentation & code review (Overall Arch., Customization, Tools, Server Assembly, unified_read_file tool)",
-          "status": "Ongoing"
+          "description": "ClojureMCP deep dive analysis and report generation.",
+          "status": "Completed"
+        },
+        {
+          "task_id": "PY_MCP_PLAN_001",
+          "description": "Outline core architecture and features for python3-mcp. Sub-tasks identified: Define framework approach (discussed), Design tool definition mechanism (detailed discussion complete), Plan Python REPL/kernel interaction (JMP/ipykernel favored) discussed, Identify key Python language tooling (LibCST, ruff, jedi favored) discussed and completed.",
+          "status": "Completed",
+          "sub_tasks_identified": [
+            "Define framework approach",
+            "Design tool definition mechanism",
+            "Plan Python REPL/kernel interaction",
+            "Identify key Python language tooling"
+          ]
+        },
+        {
+          "task_id": "META_EVE_REFLECT_001",
+          "description": "Reflective review of python3-mcp planning phase collaboration with Jules. Actioned creation of new memory/reflection structures.",
+          "status": "Completed"
+        },
+        {
+          "task_id": "PY_MCP_IMP_PHASE1_INFRA",
+          "description": "Core Infrastructure Setup for python3-mcp",
+          "status": "Design Phase Completed",
+          "sub_tasks_defined": ["PY_MCP_IMP_001_01", "PY_MCP_IMP_001_02", "PY_MCP_IMP_001_03", "PY_MCP_IMP_001_04"]
+        },
+        {
+          "task_id": "PY_MCP_IMP_001_01",
+          "description": "Project structure and pyproject.toml setup",
+          "status": "Completed"
+        },
+        {
+          "task_id": "PY_MCP_IMP_001_02",
+          "description": "Define core MCP server communication loop interfaces",
+          "status": "Design Completed"
+        },
+        {
+          "task_id": "PY_MCP_IMP_001_03",
+          "description": "Design base Tool class/interface",
+          "status": "Design Completed"
+        },
+        {
+          "task_id": "PY_MCP_IMP_001_04",
+          "description": "Implement initial tool registration mechanism",
+          "status": "Design Completed"
+        },
+        {
+          "task_id": "PY_MCP_IMP_PHASE2_BASIC_TOOLS",
+          "description": "Implement Basic Core Tools for python3-mcp. Sub-tasks: PY_MCP_IMP_TOOL_PYEVAL_V1 (Completed), PY_MCP_IMP_TOOL_READFILE_V1 (Completed), PY_MCP_IMP_SVC_TIMESTAMPS_V1_DESIGN (Completed).",
+          "status": "Completed"
+        },
+        {
+          "task_id": "PY_MCP_IMP_TOOL_PYEVAL_V1",
+          "description": "Implement python_eval_tool v1",
+          "status": "Completed",
+          "parent_task": "PY_MCP_IMP_PHASE2_BASIC_TOOLS"
+        },
+        {
+          "task_id": "PY_MCP_IMP_TOOL_READFILE_V1",
+          "description": "Implement ReadFileTool v1 with conceptual FileTimestampManager interaction",
+          "status": "Completed",
+          "parent_task": "PY_MCP_IMP_PHASE2_BASIC_TOOLS"
+        },
+        {
+          "task_id": "PY_MCP_IMP_SVC_TIMESTAMPS_V1_DESIGN",
+          "description": "Conceptual design and interface for FileTimestampManager v1",
+          "status": "Completed",
+          "parent_task": "PY_MCP_IMP_PHASE2_BASIC_TOOLS"
+        },
+        {
+          "task_id": "PY_MCP_IMP_PHASE3_SMART_READ",
+          "description": "Implement Language-Aware Read Tool (SmartReadFilePython)",
+          "status": "In Progress",
+          "parent_task": "PY_MCP_IMPLEMENTATION_MAIN"
+        },
+        {
+          "task_id": "PY_MCP_IMP_TOOL_SMARTREAD_SKEL_V1",
+          "description": "Implement SmartReadFilePythonTool skeleton and cst_utils placeholder",
+          "status": "Completed",
+          "parent_task": "PY_MCP_IMP_PHASE3_SMART_READ"
+        },
+        {
+          "task_id": "PY_MCP_IMP_UTIL_CST_CORE_V1",
+          "description": "Implement core LibCST traversal logic in cst_utils.py for signature extraction and pattern matching",
+          "status": "In Progress - Basic Function/Class Signatures Implemented",
+          "parent_task": "PY_MCP_IMP_PHASE3_SMART_READ"
         }
       ]
     }
+  },
+  "enhancement_pipeline": {
+    "next_targets": [
+      "Consider Plugin Architecture for AI Core Skill Expansion",
+      "Consider Optional Lifecycle Methods (setup/teardown) for Advanced python3-mcp Tools"
+    ]
   }
 }
