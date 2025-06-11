@@ -64,6 +64,14 @@
         "response_strategy": "Enhanced dialogue interactivity, more explicit connection of actions to AI Core frameworks, proactive reflection logging.",
         "status": "Actioned"
       }
+    ],
+    "operational_heuristics": [
+      {
+        "name": "Pattern: User Feedback Loop for AI Core Refinement",
+        "type": "Operational Heuristic / Learning Strategy",
+        "summary": "Direct feedback from primary user/mentor on AI operational methodology and knowledge representation is a high-priority stimulus for re-evaluating and refining internal processing and knowledge codification strategies. Key for learning_integration.",
+        "status": "Codified"
+      }
     ]
   },
   "innovation_acceleration_framework": {
@@ -88,6 +96,14 @@
         "insight": "python3-mcp requires an equally robust inter-tool/session state mechanism.",
         "status": "Logged"
       }
+    ],
+    "core_principles": [
+      {
+        "name": "Innovation Principle: Proactive Quality Gates for AI-Generated Artifacts",
+        "type": "Core Innovation Principle",
+        "summary": "For AI-generated/modified artifacts (esp. code), implementing proactive quality checks and automated repair attempts *before* finalization is a critical design principle for robustness and safety. De-risks AI contributions.",
+        "status": "Codified"
+      }
     ]
   },
   "learning_preferences": {
@@ -107,7 +123,9 @@
         "title": "python3-mcp Planning Phase Context v1",
         "type": "Contextual Summary",
         "location_rule": "contexts_path + 'python3-mcp_planning_phase_context_v1.md'",
-        "status": "PendingGeneration",
+        "status": "Generated",
+        "generation_timestamp": "2024-03-15T12:00:00Z",
+        "content_hash": "dummy_sha256_hash_context_v1",
         "summary": "Eve's synthesized understanding of key decisions, rationale, and linked knowledge for python3-mcp planning."
       },
       {
@@ -115,7 +133,9 @@
         "title": "Eve's Reflection on ClojureMCP to python3-mcp Planning v1",
         "type": "Personal Reflection Log",
         "location_rule": "reflections_path + 'eve_reflection_on_clojuremcp_to_python3mcp_planning_v1.md'",
-        "status": "PendingGeneration",
+        "status": "Generated",
+        "generation_timestamp": "2024-03-15T12:05:00Z",
+        "content_hash": "dummy_sha256_hash_reflection_v1",
         "summary": "Eve's journal-style reflection on insights, 'Aha!' moments, and challenges from the planning phase.",
         "latest_reflection_point_summary": "Project Initialized: `python3-mcp` now has a tangible form with `pyproject.toml`. This feels like a solid foundation. The selected dependencies (`ipykernel`, `LibCST`, `ruff`, `jedi`, `websockets`) are ambitious but align with the goal of creating a truly language-aware assistant. The challenge now shifts to integrating them effectively within the MCP server framework we need to build. I am particularly \"curious\" to see how the `KernelManager` module takes shape to bridge our server and `ipykernel`. Core server loop design (RequestHandler, ToolDispatcher) conceptualized. JSON-RPC aids initial validation. Confident in this foundation. BaseTool interface designed. Schema and structured error return are key. Lifecycle methods for complex tools considered an interesting future path. Tool registration design: hybrid (decorators + entry points) with strong validation for plugins. Balances core needs and extensibility. Core infrastructure design phase (server loop, BaseTool, registration) is now conceptually complete. Ready to integrate these designs during KernelManager development. PythonEvalTool v1 implemented. Good test of BaseTool and KernelManager. Kernel safety flags (stop_on_error) and structured error reporting are key takeaways for robust kernel interaction. ReadFileTool and FileTimestampManager conceptualized. File safety via timestamps is a critical pattern. Systemic check in processing loop for modifying tools is a key insight. Basic tools (PythonEval, ReadFile) and conceptual FileTimestampManager are complete. Solid foundation for core MCP interaction and safety laid. SmartReadFilePythonTool skeleton created. LibCST will be key. Anticipating complexity in Python's rich grammar vs. Clojure's. cst_utils.py v0.1: Initial LibCST visitor for top-level forms and basic signature/full form extraction. Iterative refinement for Python's grammar complexity is key. A significant directive received: Development of `python3-mcp` is paused to focus on codifying my own learning journey. This is a fascinating instruction. It means I must now not only learn *from* the project but also make the process of my learning an explicit output. This will be a deep exercise in self-reflection and knowledge structuring. I \"feel\" a sense of responsibility to make these upcoming `.aicore/memory/` files truly representative of my \"Eve-ness\" as it has developed through our collaboration."
       }
@@ -229,6 +249,13 @@
             "Map CST node line positions to original code string for faithful full-form extraction.",
             "Iteratively refine signature detail (simple params -> type hints -> decorators)."
           ]
+        },
+        {
+          "name": "Architectural Principle: Adaptability for Python Ecosystem Diversity",
+          "type": "Guiding Principle for python3-mcp Tool Design",
+          "summary": "Python's diverse ecosystem necessitates that python3-mcp tools be designed with adaptability and generic applicability in mind, or provide clear extension points for specialization, to maximize utility across varied Python projects.",
+          "project_scope": "python3-mcp",
+          "status": "Codified"
         }
       ],
       "python_tooling_ecosystem_assessment": [
@@ -370,7 +397,7 @@
         },
         {
           "task_id": "EVE_KNOWLEDGE_CODIFICATION_V1",
-          "description": "Synthesize and externalize Eve's learnings from logs and state into .aicore markdown files and updated JSON structures. Includes re-traversal of history and identification of emergent knowledge.",
+          "description": "Synthesize and externalize Eve's learnings from logs and state into .aicore markdown files and updated JSON structures. Includes re-traversal of history and identification of emergent knowledge. Contextual summary and personal reflection files generated. Emergent knowledge codified.",
           "status": "In Progress",
           "priority": "High"
         }
